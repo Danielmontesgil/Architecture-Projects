@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,9 +6,34 @@ namespace MissionsService.Impl
 {
     public class MissionService : MissionServiceBase
     {
-        public override void AddMissions()
+        public override void InitializeMissionsService(List<IMission> missions)
         {
-            throw new System.NotImplementedException();
+            allMissions.AddRange(missions);
+            
+            foreach (var mission in missions)
+            {
+                switch (mission.State)
+                {
+                    case MissionState.Active:
+                        activeMissions.Add(mission);
+                        break;
+                    case MissionState.Idle:
+                        idleMissions.Add(mission);
+                        break;
+                    case MissionState.InProgress:
+                        inProgressMissions.Add(mission);
+                        break;
+                    case MissionState.Complete:
+                        completedMissions.Add(mission);
+                        break;
+                    case MissionState.Cancelled:
+                        canceledMissions.Add(mission);
+                        break;
+                    case MissionState.Unknown:
+                        Debug.LogError($"Mission with Id {mission.Id} is in state Unknown");
+                        break;
+                }
+            }
         }
 
         public override void ActiveNewMissions()
@@ -37,6 +63,17 @@ namespace MissionsService.Impl
                     idleMissions.Remove(mission);
                 }
             }
+        }
+
+        public override void AcceptMission(IMission mission)
+        {
+            if (inProgressMissions.Contains(mission) || !activeMissions.Contains(mission))
+            {
+                return;
+            }
+
+            activeMissions.Remove(mission);
+            inProgressMissions.Add(mission);
         }
 
         public override IEnumerable<IMission> GetActiveMissions()
@@ -80,12 +117,12 @@ namespace MissionsService.Impl
                 return false;
             }
             
-            activeMissions.TryGetValue(mission, out var activeMission);
+            inProgressMissions.TryGetValue(mission, out var activeMission);
             if (activeMission == null)
             {
                 return false;
             }
-            activeMissions.Remove(activeMission);
+            inProgressMissions.Remove(activeMission);
             completedMissions.Add(activeMission);
             activeMission.State = MissionState.Complete;
             return true;
@@ -93,12 +130,12 @@ namespace MissionsService.Impl
         
         public override void CancelMission(IMission mission)
         {
-            activeMissions.TryGetValue(mission, out var activeMission);
+            inProgressMissions.TryGetValue(mission, out var activeMission);
             if (activeMission == null)
             {
                 return;
             }
-            activeMissions.Remove(activeMission);
+            inProgressMissions.Remove(activeMission);
             canceledMissions.Add(activeMission);
             activeMission.State = MissionState.Cancelled;
         }
