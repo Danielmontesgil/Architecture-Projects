@@ -6,13 +6,14 @@ namespace MissionsService
     public abstract class MissionServiceBase
     {
         protected List<IMission> allMissions = new List<IMission>();
+        protected List<IMission> idleMissions = new List<IMission>();
         
         protected HashSet<IMission> activeMissions = new HashSet<IMission>();
         protected HashSet<IMission> completedMissions = new HashSet<IMission>();
         protected HashSet<IMission> canceledMissions = new HashSet<IMission>();
         
         public abstract void AddMissions();
-        public abstract void ActiveNewMissions(List<IMissionRequirement> requirements);
+        public abstract void ActiveNewMissions();
         public abstract IEnumerable<IMission> GetActiveMissions();
         public abstract IEnumerable<IMission> GetCompletedMissions();
         public abstract IEnumerable<IMission> GetCanceledMissions();

@@ -10,23 +10,31 @@ namespace MissionsService.Impl
             throw new System.NotImplementedException();
         }
 
-        public override void ActiveNewMissions(List<IMissionRequirement> requirements)
+        public override void ActiveNewMissions()
         {
-            foreach (var mission in allMissions)
+            foreach (var mission in idleMissions)
             {
-                if (mission.State != MissionState.Idle)
+                var shouldActiveMission = true;
+                foreach (var requirement in mission.Requirements)
                 {
-                    continue;
+                    if (requirement.RequirementAccomplished())
+                    {
+                        continue;
+                    }
+                    shouldActiveMission = false;
                 }
 
-                var activeMission = false;
-                
-                foreach (var missionRequirement in mission.Requirements)
+                if (shouldActiveMission)
                 {
-                    if (!requirements.Contains(missionRequirement))
-                    {
-                        activeMission = false;
-                    }
+                    activeMissions.Add(mission);
+                }
+            }
+
+            foreach (var mission in activeMissions)
+            {
+                if (idleMissions.Contains(mission))
+                {
+                    idleMissions.Remove(mission);
                 }
             }
         }
