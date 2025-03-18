@@ -1,0 +1,204 @@
+﻿{
+  "Missions": [
+    {
+      "Id": "M001",
+      "Title": "First Steps",
+      "Description": "Complete the tutorial to begin your journey.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 1,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M002",
+      "Title": "Gathering Resources",
+      "Description": "Collect 10 pieces of wood.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 10,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M003",
+      "Title": "Blacksmith's Favor",
+      "Description": "Deliver 5 iron ores to the blacksmith.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 5,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M004",
+      "Title": "Hunter's Challenge",
+      "Description": "Hunt 3 wild boars.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 3,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M005",
+      "Title": "Explorer's Spirit",
+      "Description": "Visit the ancient ruins.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 1,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M006",
+      "Title": "Master Fisherman",
+      "Description": "Catch 5 different types of fish.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 5,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M007",
+      "Title": "Defend the Village",
+      "Description": "Defeat 10 attacking goblins.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 10,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M008",
+      "Title": "Hidden Treasure",
+      "Description": "Find the lost treasure chest in the caves.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 1,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M009",
+      "Title": "The Herbalist's Request",
+      "Description": "Gather 8 healing herbs from the forest.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 8,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M010",
+      "Title": "Arena Champion",
+      "Description": "Win 3 battles in the arena.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 3,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M011",
+      "Title": "Cave Explorer",
+      "Description": "Explore the deep cave and reach its end.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 1,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M012",
+      "Title": "The King's Favor",
+      "Description": "Deliver a message to the king's castle.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 1,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M013",
+      "Title": "Merchant's Request",
+      "Description": "Trade 15 apples in the market.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 15,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M014",
+      "Title": "The Lost Puppy",
+      "Description": "Find and return the lost puppy to its owner.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 1,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M015",
+      "Title": "Mining Expedition",
+      "Description": "Mine 20 stones from the quarry.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 20,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M016",
+      "Title": "The Bandit Leader",
+      "Description": "Defeat the leader of the bandits in the mountains.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 1,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M017",
+      "Title": "Sacred Relic",
+      "Description": "Retrieve the sacred relic from the temple.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 1,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M018",
+      "Title": "Swift Messenger",
+      "Description": "Deliver 3 urgent messages across the town.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 3,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M019",
+      "Title": "Alchemy Experiment",
+      "Description": "Craft a powerful potion.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 1,
+      "Progress": 0,
+      "Requirements": []
+    },
+    {
+      "Id": "M020",
+      "Title": "Final Trial",
+      "Description": "Complete the final test of strength and wisdom.",
+      "State": 0,
+      "Reward": [],
+      "QuantityToComplete": 1,
+      "Progress": 0,
+      "Requirements": []
+    }
+  ]
+}
