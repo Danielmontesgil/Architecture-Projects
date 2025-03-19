@@ -8,7 +8,12 @@
       "Reward": [],
       "QuantityToComplete": 1,
       "Progress": 0,
-      "Requirements": []
+      "Requirements":[
+        {
+          "Type":"LevelRequirement",
+          "Level":5
+        }
+      ]
     },
     {
       "Id": "M002",
@@ -18,7 +23,7 @@
       "Reward": [],
       "QuantityToComplete": 10,
       "Progress": 0,
-      "Requirements": []
+      "Requirements": ["LevelRequirement"]
     },
     {
       "Id": "M003",

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MissionsService;
+using Newtonsoft.Json;
 using UnityEngine;
 
 [Serializable]

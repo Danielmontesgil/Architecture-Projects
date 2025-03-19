@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace MissionsService
@@ -12,7 +13,7 @@ namespace MissionsService
         protected HashSet<IMission> inProgressMissions = new HashSet<IMission>();
         protected HashSet<IMission> completedMissions = new HashSet<IMission>();
         protected HashSet<IMission> canceledMissions = new HashSet<IMission>();
-        
+
         public abstract void InitializeMissionsService(List<IMission> missions);
         public abstract void ActiveNewMissions();
         public abstract void AcceptMission(IMission mission);
