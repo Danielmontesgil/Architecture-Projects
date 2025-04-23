@@ -11,7 +11,7 @@
       "Requirements":[
         {
           "Type":"LevelRequirement",
-          "Level":5
+          "LevelRequired":5
         }
       ]
     },

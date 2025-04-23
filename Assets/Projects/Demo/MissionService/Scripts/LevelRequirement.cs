@@ -4,16 +4,17 @@ using MissionsService;
 [Serializable]
 public class LevelRequirement: IMissionRequirement
 {
-    public int playerLevel;
-    private int levelRequired;
+   
+    public string Type;
+    public int LevelRequired;
 
     public LevelRequirement(int levelRequired)
     {
-        this.levelRequired = levelRequired;
+        this.LevelRequired = levelRequired;
     }
 
     public bool RequirementAccomplished()
     {
-        return playerLevel >= levelRequired;
+        return true;
     }
 }
