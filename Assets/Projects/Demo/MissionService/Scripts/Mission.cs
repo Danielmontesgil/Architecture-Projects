@@ -38,7 +38,12 @@ public class MissionRequirementConverter : JsonConverter<List<IMissionRequiremen
             switch (type)
             {
                 case "LevelRequirement":
-                    requirements.Add(item.ToObject<LevelRequirement>());
+                    var newRequirement = item.ToObject<LevelRequirement>();
+                    requirements.Add(newRequirement);
+                    if (!(newRequirement is IMissionRequirement))
+                    {
+                        Debug.LogError("Cerdo");
+                    }
                     break;
                 default:
                     throw new JsonSerializationException($"Tipo de requisito desconocido: {type}");

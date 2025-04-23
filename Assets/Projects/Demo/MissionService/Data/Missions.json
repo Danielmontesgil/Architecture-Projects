@@ -23,7 +23,7 @@
       "Reward": [],
       "QuantityToComplete": 10,
       "Progress": 0,
-      "Requirements": ["LevelRequirement"]
+      "Requirements": []
     },
     {
       "Id": "M003",
