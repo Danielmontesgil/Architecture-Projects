@@ -5,7 +5,22 @@
       "Title": "First Steps",
       "Description": "Complete the tutorial to begin your journey.",
       "State": 0,
-      "Reward": [],
+      "Reward": [
+        {
+          "Type": "BasicReward",
+          "Id": "5415648569",
+          "Title":"Tenga esta bobada",
+          "Icon": "Assets/Art/icon.png",
+          "Amount": 1.0
+        },
+        {
+          "Type": "BasicReward",
+          "Id": "26375657",
+          "Title":"Tenga esta bobada 2.0",
+          "Icon": "Assets/Art/icon2.png",
+          "Amount": 1.0
+        }
+      ],
       "QuantityToComplete": 1,
       "Progress": 0,
       "Requirements":[

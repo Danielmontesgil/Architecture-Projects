@@ -16,7 +16,7 @@ public class MissionServiceDemoManager : MonoBehaviour
     
     void Start()
     {
-        initializeServiceButton.onClick.AddListener(()=> OnInitializeMissionService());
+        initializeServiceButton.onClick.AddListener(OnInitializeMissionService);
     }
     
     public void OnInitializeMissionService()

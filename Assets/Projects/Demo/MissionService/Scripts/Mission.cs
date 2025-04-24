@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using MissionsService;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using UnityEngine;
 
 [Serializable]
 public class Mission: IMission
@@ -12,6 +11,7 @@ public class Mission: IMission
     public string Title { get; set; }
     public string Description { get; set; }
     public MissionState State { get; set; }
+    [JsonConverter(typeof(RewardsConverter))]
     public List<IRewardable> Reward { get; set; }
     public int QuantityToComplete { get; set; }
     public int Progress { get; set; }
@@ -40,10 +40,6 @@ public class MissionRequirementConverter : JsonConverter<List<IMissionRequiremen
                 case "LevelRequirement":
                     var newRequirement = item.ToObject<LevelRequirement>();
                     requirements.Add(newRequirement);
-                    if (!(newRequirement is IMissionRequirement))
-                    {
-                        Debug.LogError("Cerdo");
-                    }
                     break;
                 default:
                     throw new JsonSerializationException($"Tipo de requisito desconocido: {type}");
@@ -54,6 +50,37 @@ public class MissionRequirementConverter : JsonConverter<List<IMissionRequiremen
     }
 
     public override void WriteJson(JsonWriter writer, List<IMissionRequirement> value, JsonSerializer serializer)
+    {
+        serializer.Serialize(writer, value);
+    }
+}
+
+public class RewardsConverter : JsonConverter<List<IRewardable>>
+{
+    public override List<IRewardable> ReadJson(JsonReader reader, Type objectType, List<IRewardable> existingValue, bool hasExistingValue,
+        JsonSerializer serializer)
+    {
+        var jsonArray = JArray.Load(reader);
+        var rewards = new List<IRewardable>();
+
+        foreach (var item in jsonArray)
+        {
+            string type = item["Type"]?.ToString();
+            switch (type)
+            {
+                case "BasicReward":
+                    var newReward = item.ToObject<BasicItemReward>();
+                    rewards.Add(newReward);
+                    break;
+                default:
+                    throw new JsonSerializationException($"Tipo de requisito desconocido: {type}");
+            }
+        }
+
+        return rewards;
+    }
+
+    public override void WriteJson(JsonWriter writer, List<IRewardable> value, JsonSerializer serializer)
     {
         serializer.Serialize(writer, value);
     }
