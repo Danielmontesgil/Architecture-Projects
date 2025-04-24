@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 public class MissionServiceDemoManager : MonoBehaviour
 {
     public Button initializeServiceButton;
-    public Button activeMissionButton;
+    public Button activateMissionButton;
     
     private MissionsData missions;
     private MissionService missionService;
@@ -35,6 +35,12 @@ public class MissionServiceDemoManager : MonoBehaviour
         missionService.InitializeMissionsService(missionInterfaces);
         
         // Active the complete demo
-        activeMissionButton.interactable = true;
+        activateMissionButton.interactable = true;
+        activateMissionButton.onClick.AddListener(OnActivateMission);
+    }
+
+    public void OnActivateMission()
+    {
+        
     }
 }
