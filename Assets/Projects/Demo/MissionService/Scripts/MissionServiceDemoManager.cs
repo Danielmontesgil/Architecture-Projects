@@ -13,6 +13,14 @@ public class MissionServiceDemoManager : MonoBehaviour
     
     private MissionsData missions;
     private MissionService missionService;
+
+    #region UI
+
+    public Transform activeMissionsParent;
+    public GameObject activeMissionPrefab;
+    private List<ActiveMisionEntry> missionsEntry = new List<ActiveMisionEntry>();
+
+    #endregion
     
     void Start()
     {
@@ -41,6 +49,43 @@ public class MissionServiceDemoManager : MonoBehaviour
 
     public void OnActivateMission()
     {
-        
+        missionService.ActiveNewMissions();
+
+        foreach (IMission mission in missionService.GetActiveMissions())
+        {
+            if (missionsEntry.Count > 0)
+            {
+                bool missionFound = false;
+                foreach (var missionEntry in missionsEntry)
+                {
+                    if (mission == missionEntry.mission)
+                    {
+                        missionFound = true;
+                        break;
+                    }
+                }
+
+                if (!missionFound)
+                {
+                    CreateMissionEntry(mission);
+                }
+                continue;
+            }
+
+            CreateMissionEntry(mission);
+        }
+    }
+
+    private void CreateMissionEntry(IMission mission)
+    {
+        ActiveMisionEntry newMissionEntry = Instantiate(activeMissionPrefab, activeMissionsParent).GetComponent<ActiveMisionEntry>();
+        newMissionEntry.Init(mission, AcceptMission);
+        missionsEntry.Add(newMissionEntry);
+    }
+
+    private void AcceptMission(IMission mission, ActiveMisionEntry entry)
+    {
+        missionService.AcceptMission(mission);
+        entry.gameObject.SetActive(false);
     }
 }

@@ -53,6 +53,7 @@ namespace MissionsService.Impl
                 if (shouldActiveMission)
                 {
                     activeMissions.Add(mission);
+                    mission.State = MissionState.Active;
                 }
             }
 
@@ -71,6 +72,8 @@ namespace MissionsService.Impl
             {
                 return;
             }
+
+            mission.State = MissionState.InProgress;
 
             activeMissions.Remove(mission);
             inProgressMissions.Add(mission);

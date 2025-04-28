@@ -17,6 +17,16 @@ public class Mission: IMission
     public int Progress { get; set; }
     [JsonConverter(typeof(MissionRequirementConverter))]
     public List<IMissionRequirement> Requirements { get; set; }
+
+    public static bool operator ==(Mission a, Mission b)
+    {
+        return a.Id == b.Id;
+    }
+
+    public static bool operator !=(Mission a, Mission b)
+    {
+        return !(a.Id == b.Id);
+    }
 }
 
 [Serializable]

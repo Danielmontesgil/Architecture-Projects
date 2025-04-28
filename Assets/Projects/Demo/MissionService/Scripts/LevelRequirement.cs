@@ -1,5 +1,6 @@
 using System;
 using MissionsService;
+using Random = UnityEngine.Random;
 
 [Serializable]
 public class LevelRequirement: IMissionRequirement
@@ -12,9 +13,10 @@ public class LevelRequirement: IMissionRequirement
     {
         this.LevelRequired = levelRequired;
     }
-
+    
     public bool RequirementAccomplished()
     {
+        //return Random.Range(0, 1) > 0.5;
         return true;
     }
 }
