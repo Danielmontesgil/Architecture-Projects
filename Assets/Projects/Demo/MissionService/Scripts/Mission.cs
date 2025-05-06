@@ -20,12 +20,12 @@ public class Mission: IMission
 
     public static bool operator ==(Mission a, Mission b)
     {
-        return a.Id == b.Id;
+        return a?.Id == b?.Id;
     }
 
     public static bool operator !=(Mission a, Mission b)
     {
-        return !(a.Id == b.Id);
+        return !(a?.Id == b?.Id);
     }
 }
 

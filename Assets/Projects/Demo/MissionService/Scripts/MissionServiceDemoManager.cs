@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using MissionsService;
@@ -17,6 +18,7 @@ public class MissionServiceDemoManager : MonoBehaviour
     #region UI
 
     public Transform activeMissionsParent;
+    public Transform inProgressMissionsParent;
     public GameObject activeMissionPrefab;
     private List<ActiveMisionEntry> missionsEntry = new List<ActiveMisionEntry>();
 
@@ -26,7 +28,21 @@ public class MissionServiceDemoManager : MonoBehaviour
     {
         initializeServiceButton.onClick.AddListener(OnInitializeMissionService);
     }
-    
+
+    private void Update()
+    {
+        if (!Input.GetKeyDown(KeyCode.A))
+        {
+            return;
+        }
+        var currentMission = missionsEntry[0];
+        missionService.AddProgress(currentMission.mission, 1);
+        if (currentMission.mission.State == MissionState.Complete)
+        {
+            currentMission.ToggleState();
+        }
+    }
+
     public void OnInitializeMissionService()
     {
         string filePath = Path.Combine(Application.dataPath, "Projects", "Demo", "MissionService", "Data", "missions.json");
@@ -86,6 +102,7 @@ public class MissionServiceDemoManager : MonoBehaviour
     private void AcceptMission(IMission mission, ActiveMisionEntry entry)
     {
         missionService.AcceptMission(mission);
-        entry.gameObject.SetActive(false);
+        entry.gameObject.transform.SetParent(inProgressMissionsParent);
+        entry.ToggleState();
     }
 }
